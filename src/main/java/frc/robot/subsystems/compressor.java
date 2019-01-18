@@ -7,19 +7,17 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class intake extends Subsystem {
+public class compressor extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private DoubleSolenoid solenoidleft;
-  private DoubleSolenoid solenoidright;
+  Compressor compressor;
 
   @Override
   public void initDefaultCommand() {
@@ -27,19 +25,11 @@ public class intake extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public intake(){
-    solenoidleft = new DoubleSolenoid(RobotMap.pcm_id, 1, 2);
-    solenoidright = new DoubleSolenoid(RobotMap.pcm_id, 3, 4);
+  public compressor(){
+    compressor = new Compressor(RobotMap.pcm_id);
   }
 
-  public void setpistons(boolean open){
-    if (open){
-      solenoidleft.set(Value.kReverse);
-      solenoidright.set(Value.kReverse);
-    }
-    else{
-      solenoidleft.set(Value.kForward);
-      solenoidright.set(Value.kForward);
-    }
+  public void turncompressoron(){
+    compressor.setClosedLoopControl(true);
   }
 }

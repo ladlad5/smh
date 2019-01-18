@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.drivecommand;
 import frc.robot.subsystems.drivetrain;
 import frc.robot.subsystems.intake;
+import frc.robot.subsystems.compressor;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot {
   public static drivetrain Drivetrain;
   public static drivecommand Drivecommand;
   public static intake Intake;
+  public static compressor Compressor;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -117,6 +119,7 @@ public class Robot extends IterativeRobot {
       
     }
     Drivecommand.start();
+    Robot.Compressor.turncompressoron();
   }
 
   /**
