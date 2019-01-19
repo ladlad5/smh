@@ -32,4 +32,8 @@ public class compressor extends Subsystem {
   public void turncompressoron(){
     compressor.setClosedLoopControl(true);
   }
+
+  public void turncompressoroff(){
+    compressor.setClosedLoopControl(false);
+  }
 }

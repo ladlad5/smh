@@ -23,7 +23,7 @@ public class drivetrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   
-  boolean isfieldcentric = true;
+  boolean isfieldcentric = false;
   WPI_TalonSRX leftmaster;
   WPI_TalonSRX leftslave;
   WPI_TalonSRX rightmaster;

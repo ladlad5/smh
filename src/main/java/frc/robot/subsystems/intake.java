@@ -28,8 +28,8 @@ public class intake extends Subsystem {
   }
 
   public intake(){
-    solenoidleft = new DoubleSolenoid(RobotMap.pcm_id, 1, 2);
-    solenoidright = new DoubleSolenoid(RobotMap.pcm_id, 3, 4);
+    solenoidleft = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
+   solenoidright = new DoubleSolenoid(RobotMap.pcm_id, 3, 2);
   }
 
   public void setpistons(boolean open){

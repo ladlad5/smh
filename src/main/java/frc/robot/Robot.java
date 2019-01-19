@@ -42,6 +42,8 @@ public class Robot extends IterativeRobot {
     m_oi = new OI();
     Drivetrain = new drivetrain();
     Drivecommand = new drivecommand();
+    Compressor = new compressor();
+    Intake = new intake();
     // chooser.addObject("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
@@ -65,6 +67,7 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void disabledInit() {
+   Robot.Compressor.turncompressoroff();
   }
 
   @Override

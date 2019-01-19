@@ -30,6 +30,5 @@ public class RobotMap {
   public static int ct_center_1 = 5;
   public static int ct_center_2 = 2;
 
-  public static int pcm_id = 10;
-  public static int pcm_id2 = 11;
+  public static int pcm_id = 9;
 }

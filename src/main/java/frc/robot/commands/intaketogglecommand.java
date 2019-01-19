@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class intaketogglecommand extends Command {
-  boolean open;
+  boolean open = false;
   public intaketogglecommand(boolean open) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Intake);
+   // requires(Robot.Intake);
     this.open = open;
   }
 
