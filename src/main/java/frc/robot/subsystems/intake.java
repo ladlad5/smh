@@ -30,7 +30,7 @@ public class intake extends Subsystem {
 
   public intake(){
     armsolenoid = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
-    kickersolenoid = new DoubleSolenoid(RobotMap.pcm_id, 2, 3);
+    kickersolenoid = new DoubleSolenoid(RobotMap.pcm_id, 3, 2);
   }
 
   public void setpistons(boolean open){
