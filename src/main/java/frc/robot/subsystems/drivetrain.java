@@ -53,12 +53,12 @@ public class drivetrain extends Subsystem {
   
   public void alldrive(double throttle, double rotation, double strafe){
     if (isfieldcentric){
-      RobotDrive.arcadeDrive(-throttle /* Math.cos(getyaw()) + -strafe * Math.sin(getyaw())*/, -rotation);
-      centermaster.set(ControlMode.PercentOutput, /*-(-throttle * Math.sin(getyaw()) + strafe * Math.cos(getyaw()))*/ -strafe);
+      RobotDrive.arcadeDrive(-throttle * Math.cos(getyaw()) + -strafe * Math.sin(getyaw()), -rotation);
+      centermaster.set(ControlMode.PercentOutput, -(-throttle * Math.sin(getyaw()) + strafe * Math.cos(getyaw())));
     }
     else{
-      RobotDrive.arcadeDrive(-throttle, -rotation);
-      centermaster.set(ControlMode.PercentOutput, -strafe);
+      RobotDrive.arcadeDrive(throttle, -rotation);
+      centermaster.set(ControlMode.PercentOutput, strafe);
     }
     SmartDashboard.putNumber("yaw", getyaw());
   }

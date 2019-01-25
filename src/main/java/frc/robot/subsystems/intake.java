@@ -18,8 +18,9 @@ import frc.robot.RobotMap;
 public class intake extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private DoubleSolenoid solenoidleft;
-  private DoubleSolenoid solenoidright;
+  private DoubleSolenoid armsolenoid;
+  private DoubleSolenoid kickersolenoid;
+  boolean open = false;
 
   @Override
   public void initDefaultCommand() {
@@ -28,18 +29,25 @@ public class intake extends Subsystem {
   }
 
   public intake(){
-    solenoidleft = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
-   solenoidright = new DoubleSolenoid(RobotMap.pcm_id, 3, 2);
+    armsolenoid = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
+    kickersolenoid = new DoubleSolenoid(RobotMap.pcm_id, 2, 3);
   }
 
   public void setpistons(boolean open){
     if (open){
-      solenoidleft.set(Value.kReverse);
-      solenoidright.set(Value.kReverse);
+      armsolenoid.set(Value.kReverse);
     }
     else{
-      solenoidleft.set(Value.kForward);
-      solenoidright.set(Value.kForward);
+      armsolenoid.set(Value.kForward);
+    }
+  }
+
+  public void kicker(){
+    if (open){
+      kickersolenoid.set(Value.kReverse);
+    }
+    else{
+      kickersolenoid.set(Value.kForward);
     }
   }
 }

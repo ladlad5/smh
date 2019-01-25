@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.fieldcentrictogglecommand;
 import frc.robot.commands.intaketogglecommand;
+import frc.robot.commands.kickertogglecommand;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -55,6 +56,9 @@ public class OI {
 
     JoystickButton xBoxLeftJoystick = new JoystickButton(xbox, 9);
     xBoxLeftJoystick.whenPressed(new intaketogglecommand(false));
+
+    JoystickButton xBoxA = new JoystickButton(xbox, 1);
+    xBoxA.whenPressed(new kickertogglecommand());
 
   }
 
