@@ -8,8 +8,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import frc.robot.RobotMap;
 
 /**
@@ -29,8 +31,8 @@ public class intake extends Subsystem {
   }
 
   public intake(){
-    armsolenoid = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
-    kickersolenoid = new DoubleSolenoid(RobotMap.pcm_id, 3, 2);
+    kickersolenoid = new DoubleSolenoid(RobotMap.pcm_id, 1, 0);
+    armsolenoid = new DoubleSolenoid(RobotMap.pcm_id, 3, 2);
   }
 
   public void setpistons(boolean open){
@@ -42,12 +44,17 @@ public class intake extends Subsystem {
     }
   }
 
-  public void kicker(){
+  public void kicker() {
     if (open){
       kickersolenoid.set(Value.kReverse);
+      open = false;
     }
     else{
       kickersolenoid.set(Value.kForward);
+      Timer.delay(0.1);
+      armsolenoid.set(Value.kReverse);
+      open = true;
     }
   }
+
 }
