@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.DriveToVisionTargetStrafing;
 import frc.robot.commands.fieldcentrictogglecommand;
 import frc.robot.commands.intaketogglecommand;
 import frc.robot.commands.kickertogglecommand;
@@ -59,6 +60,9 @@ public class OI {
 
     JoystickButton xBoxA = new JoystickButton(xbox, 1);
     xBoxA.whenPressed(new kickertogglecommand());
+
+    JoystickButton xBoxB = new JoystickButton(xbox, 2);
+    xBoxB.whenPressed(new DriveToVisionTargetStrafing());
 
   }
 

@@ -30,6 +30,8 @@ public class Robot extends IterativeRobot {
   public static drivecommand Drivecommand;
   public static intake Intake;
   public static compressor Compressor;
+  public double[] visioninfo;
+  double[] empty = new double[] {0.0,0.0,0.0,0.0,0.0,0.0};
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -47,7 +49,7 @@ public class Robot extends IterativeRobot {
     Intake = new intake();
     // chooser.addObject("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    CameraServer.getInstance().startAutomaticCapture();
+    //CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**
@@ -60,6 +62,12 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void robotPeriodic() {
+    visioninfo=SmartDashboard.getNumberArray("vision/target_info", empty);
+  }
+  
+  public double[] getTargetInfo(){
+    return visioninfo;
+
   }
 
   /**
@@ -124,7 +132,7 @@ public class Robot extends IterativeRobot {
       
     }
     Drivecommand.start();
-    Robot.Compressor.turncompressoron();
+    //Robot.Compressor.turncompressoron();
   }
 
   /**
